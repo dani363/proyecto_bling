@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/estilos2.css">
+  </head>
+<body>
+
+      
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white border text-center ">
+                        <h1>Modificar Producto</h1>
+                    </div>
+                    <div class="card-body border">
+                        <form action="./menu.html" method="post">
+                            <div class="form-group">
+                                <label for="fecha">Talla</label>
+                                <input type="text" class="form-control" id="talla" placeholder="Ingrese la talla" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidad">Color</label>
+                                <input type="color" class="form-control" id="color" placeholder="Ingrese el color" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="total">cantidad</label>
+                                <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="nombre">nombre</label>
+                              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" required>
+                          </div>
+                          <div class="form-group">
+                            <label for="fecha">descripcion</label>
+                            <input type="text" class="form-control" id="descripcion" placeholder="Ingrese una descripcion(opcional)">
+                          </div>
+                          <div class="form-group">
+                            <label for="fecha">Marca</label>
+                            <input type="text" class="form-control" id="descripcion" placeholder="Marca" required>
+                          </div>
+                            <div class="form-group ">
+                                <label for="categoria">categoria</label>
+                                <select class="form-control" id="categoria" required>
+                                    <option value="pendiente">Niños</option>
+                                    <option value="completado">Dama</option>
+                                    <option value="cancelado">Caballero</option>
+                                </select>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block p-3">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

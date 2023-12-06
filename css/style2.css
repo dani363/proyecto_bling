@@ -1,0 +1,34 @@
+.busqueda{
+   align-items: center;
+}
+
+
+.navbar{
+    padding: 2rem;
+    background-color: #E6E3E3;
+    justify-content: space-between;
+}
+.galeria{
+    min-width: 1200px;
+    max-width: 1900px;
+    display: flex;
+    width: 90%;
+    height: 90%;
+
+}
+.galeria img{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    filter: brightness(80%);
+    transition: .10s ease;
+}
+.galeria img:hover{
+    width: 100%;
+    opacity: 1;
+    filter: brightness(130%);
+}
+.busqueda{
+    object-position: left;
+
+}

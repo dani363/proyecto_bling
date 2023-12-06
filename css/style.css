@@ -1,0 +1,63 @@
+.busqueda{
+    align-items: center;
+ }
+ 
+ 
+ .navbar{
+     padding: 2rem;
+     background-color: #E6E3E3;
+     justify-content: space-between;
+     align-items: center; /* Centra verticalmente los elementos */
+    padding: 10px 20px; /* Espaciado interno para el contenedor */
+    
+ }
+.galeria{
+    display: flex;
+    width: 1900px;
+    height: 500px;
+
+}
+.galeria img{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    filter: brightness(80%);
+    transition: .10s ease;
+}
+.galeria img:hover{
+    width: 1000px;
+    opacity: 1;
+    filter: brightness(130%);
+}
+.busqueda{
+    position: relative;
+    left: 900px;
+
+}
+/* Alinea las secciones horizontalmente */
+.secciones {
+    display: flex;
+    flex-wrap: wrap; /* Para que las secciones se ajusten en pantallas pequeñas */
+
+}
+
+/* Estilo de cada sección */
+section {
+    flex: 1; /* Hace que las secciones ocupen todo el ancho disponible */
+    width: calc(33.33% - 38px); /* Ancho de cada sección (33.33% - espacio) */
+    padding: 20px;
+    background-color: #1057c0;
+    color: #E6E3E3;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+   
+}
+/* Estilos para el logotipo */
+.logo {
+    float: right; /* Alinea el logotipo a la derecha */
+    width: 100px; /* Ancho del logotipo (ajusta según sea necesario) */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin-right: 20px; /* Ajusta el margen derecho según tus necesidades */
+    margin-top: 10px; /* Ajusta el margen superior según sea necesario */
+    margin-right: 80px; /* Espacio entre el logo y el texto */
+}
+

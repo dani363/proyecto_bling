@@ -1,0 +1,27 @@
+/* Estilos para el contenedor blanco */
+.pedido-container {
+    border: 3px solid blue; /* Borde azul alrededor del título */
+    padding: 10px; /* Espacio interior */
+    margin-bottom: 20px; /* Espacio entre pedidos */
+}
+
+/* Estilos para cada fila de pedido */
+.pedido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos para las imágenes */
+.pedido img {
+    max-width: 200px;
+}
+
+/* Estilos para los botones */
+.comprar-button {
+    
+    margin-top: 10px; /* Espacio entre la imagen y los botones */
+}
+
+

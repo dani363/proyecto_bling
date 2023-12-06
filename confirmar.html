@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Compra</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" href="logo.jpg">
+</head>
+<body onload="mostrarProductosDelCarrito()">
+    <div id="container">
+        <div id="header">
+            
+            <div id="welcome-text">
+                <h1>Confirmación de Pedido</h1>
+            </div>
+        </div>
+        <div id="confirmacion">
+            <h2>Detalles del Producto</h2>
+            <div id="detalles-productos">
+           
+            </div>
+                <!-- Aquí se mostrarán los detalles de los productos seleccionados -->
+            </div>
+            <a href="./seleccionar producto.html" class="comprar-button">Regresar</a>
+            <a href="./menu.html"  class="comprar-button" onclick="confirmarCompra(4)">Ir a pago</a>
+        </div>
+        <div id="mensaje"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

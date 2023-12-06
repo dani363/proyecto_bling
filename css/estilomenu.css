@@ -1,0 +1,19 @@
+/* Agregar estilos para las secciones */
+.secciones {
+    display: flex;
+    justify-content: space-between; /* Espacio entre las secciones */
+    flex-wrap: wrap; /* Para que las secciones se ajusten en pantallas pequeñas */
+    margin: 20px; /* Espacio exterior alrededor de las secciones */
+}
+
+section {
+    width: calc(33.33% - 20px); /* Ancho de cada sección (33.33% - espacio) */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px; /* Espacio entre las secciones */
+}
+
+/* Otros estilos (mantenlos como los tenías) */
+/* ... */

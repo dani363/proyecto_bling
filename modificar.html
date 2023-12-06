@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Venta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-primary">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white border text-center ">
+                        <h1>Modificar Venta</h1>
+                    </div>
+                    <div class="card-body border">
+                        <form action="./500.html" method="post">
+                            <div class="form-group">
+                                <label for="fecha">Fecha</label>
+                                <input type="date" class="form-control" id="fecha" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la nueva cantidad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="total">Total</label>
+                                <input type="number" class="form-control" id="total" placeholder="Ingrese el nuevo total" required>
+                            </div>
+                            <div class="form-group ">
+                                <label for="estado">Estado</label>
+                                <select class="form-control" id="estado" required>
+                                    <option value="pendiente">Pendiente</option>
+                                    <option value="completado">Completado</option>
+                                    <option value="cancelado">Cancelado</option>
+                                </select>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block p-3">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

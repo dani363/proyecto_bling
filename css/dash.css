@@ -1,0 +1,17 @@
+.ventas{
+    border: 1px solid white;
+    font-size: large;
+    
+}
+#fondo{
+    border: 1px solid whitesmoke;
+    border-radius:.25rem;
+    border-radius: 25px;
+}
+
+h1{
+    font-size: 100px;
+}
+.op_v a{
+    font-size: 25px;
+}
