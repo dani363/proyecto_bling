@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modificar Pago</title>
+  <link rel="stylesheet" href="../bling/css/style_pago.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Modificar Pago</h1>
+
+  <form action="mod_pago.php" method="post">
+    <div class="mb-3">
+      <label for="fecha_pago" class="form-label">Fecha de pago</label>
+      <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" required>
+    </div>
+    <div class="mb-3">
+      <label for="total" class="form-label">Total</label>
+      <input type="number" class="form-control" id="total" name="total" required>
+    </div>
+    <div class="mb-3">
+      <label for="id_pago" class="form-label">ID del pago</label>
+      <input type="number" class="form-control" id="id_pago" name="id_pago" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Modificar</button>
+  </form>
+</div>
+
+</body>
+</html>
