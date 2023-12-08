@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="crear-pago.php" method="post">
+        <input type="hidden" name="id_venta" value="<?php echo $id_venta; ?>">
+        <select name="estado">
+          <option value="realizada">Realizada</option>
+          <option value="anulada">Anulada</option>
+        </select>
+        <input type="date" name="fecha">
+        <input type="number" name="cantidad_total" step="1">
+        <input type="number" name="total_venta" step="0.01">
+        <button type="submit" name="guardar">Guardar</button>
+        <button type="reset" name="cancelar">Cancelar</button>
+      </form>
+</body>
+</html>
