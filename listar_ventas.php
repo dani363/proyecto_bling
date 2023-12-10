@@ -40,7 +40,7 @@ while ($registro = mysqli_fetch_assoc($resultado)) {
     echo "<td>{$registro['Total_venta']}</td>";
     echo "<td>{$registro['cod_vendedor']}</td>";
     echo "<td>{$registro['nombre']}</td>";
-    echo "<td><a href='elim_venta.php?id_venta={$registro['id_venta']}' onclick='confirmarEliminar({$registro['id_venta']})'>Eliminar</a> </td><td> | <a href='detalles_pago.php?id_pago={$registro['id_venta']}'>Detalle</a></td>";
+    echo "<td><a href='elim_venta.php?id_venta={$registro['id_venta']}' onclick='confirmarEliminar({$registro['id_venta']})'>Eliminar</a> </td><td> <a href='detalles_pago.php?id_pago={$registro['id_venta']}'>Detalle</a></td>";
     echo "<td><a href='ruta_al_archivo.pdf' download='nombre_del_archivo.pdf'>Descargar</a></td>";
     echo "</tr>";
     echo "</table>";

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../bling/css/style_pago.css">
 </head>
 <body>
+<a href="./ventas_list.php" class="volver-btn">Volver</a>
 <?php
 
 // Conectar a la base de datos
@@ -21,10 +22,9 @@ if ($mysqli->connect_error) {
 $idPago = $_GET['id_pago'];
 
 // Obtener los datos de la transacción
-$sql = "SELECT * FROM transacciones WHERE id_pago = $idPago";
+$sql = "SELECT * FROM transacciones WHERE fk_id_pago = $idPago";
 $result = $mysqli->query($sql);
 
-// Imprimir los datos de la transacción
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
     echo '<h1>Detalles de la transacción</h1>';
@@ -59,8 +59,8 @@ if ($result->num_rows > 0) {
   echo '<h1>No hay datos de transacción para este pago</h1>';
 }
 
-// Cerrar la conexión a la base de datos
-$mysqli->close();
+
+
 ?>
 
 </body>

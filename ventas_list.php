@@ -10,7 +10,6 @@
   <input type="text" name="busqueda" placeholder="Buscar">
   <input type="submit" value="Buscar">
 </form>
-
 <h1>Listado de ventas</h1>
 
 <table>
@@ -87,7 +86,6 @@ while ($registro = mysqli_fetch_assoc($resultado)) {
 ?>
   <form action="col_pago.php" method="get">
   
-  <input type="submit" value="Buscar">
   <input type="button" value="Ver reporte" onclick="window.location.href='col_pago.php'">
 </form>
 </table>
@@ -95,7 +93,8 @@ while ($registro = mysqli_fetch_assoc($resultado)) {
 
 
     <a href="crear_venta.php " class="volver-btn">Agregar venta</a>
-    <a href="../Bling/menu.html" class="volver-btn">Volver</a>
+    <a href="../Bling/dashboard_v.html" class="volver-btn">Volver</a>
+    <a href="../Bling/col_pago_list.php" class="volver-btn">pagos realizados</a>
 
 
   </div>

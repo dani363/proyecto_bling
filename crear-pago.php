@@ -30,7 +30,6 @@ if (empty($_SESSION['error'])) {
 $sql = "INSERT INTO pago (fecha_pago, total, fk_id_venta) VALUES (?, ?, ?)";
 $sentencia = $conexion->prepare($sql);
 $sentencia->execute(array($fecha_pago, $total, $id_transaccion));
-header('Location: col_pago_list.php');
 // Mensaje de error
 if (!empty($_SESSION['error'])) {
 echo $_SESSION['error'];

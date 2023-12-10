@@ -8,11 +8,11 @@
 <body>
    
 <div class="container">
-    <form action="pagar_efectivo.php" method="post">
+    <form action="col_pago_list.php" method="post">
       <input type="text" name="cedula" placeholder="Cédula" required>
       <input type="text" name="monto" placeholder="Monto" required>
       <label for="id_venta" class="form-label">ID del pago </label>
-      <input type="number"  id="id_venta" name="id_venta" value="<?php echo $latestSaleID; ?>">
+      <input type="number"  id="id_pago" name="id_pago" value="<?php echo $latestSaleID; ?>">
       <input type="submit" value="Pagar">
     </form>
     
