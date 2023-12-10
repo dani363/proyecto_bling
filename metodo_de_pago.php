@@ -15,7 +15,7 @@
         <h1 class="card-title">Metodo de Pago</h1>
       </div>
       <div class="card-body">
-        <form action="" method="post">
+        <form action="./col_pago_list.php" method="post">
           <label for="exampleDataList" class="form-label">Escoge el método de pago:</label>
           <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Seleccionar opción" name="metodo_pago" required>
           <datalist id="datalistOptions">
@@ -28,7 +28,7 @@
           </div>
 
           <div id="formulario-tarjeta" style="display: none;">
-            <?php include 'pago_tarjeta_form.php  '; ?>
+            <?php include 'pago_tarjeta_form.php'; ?>
           </div>
 
           

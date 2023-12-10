@@ -7,6 +7,7 @@
 <body>
 
 <div class="container">
+<a href="ventas_list.php">volver</a>
 <form action="consulta_pago.php" method="get">
     <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
     <input type="submit" value="Buscar">
@@ -41,7 +42,7 @@
             echo "<tr>";
             echo "<td>{$registro['fecha_pago']}</td>";
             echo "<td>{$registro['total']}</td>";
-            echo "<td><a href='mod_pago.html?id_pago={$registro['id_pago']}'>Modificar</a> | <a href='elim_pago.php?id_pago={$registro['id_pago']}' onclick='confirmarEliminar({$registro['id_pago']})'>Eliminar</a> </td><td> | <a href='detalles_pago.php?id_pago={$registro['id_pago']}'>Detalle</a></td>";
+            echo "<td><a href='mod_pago.html?id_pago={$registro['id_pago']}'>Modificar</a> | <a href='elim_pago.php?id_pago={$registro['id_pago']}' onclick='confirmarEliminar({$registro['id_pago']})'>Eliminar</a> | <a href='detalles_pago.php?id_pago={$registro['id_pago']}'>Detalle</a></td>";
             echo "</tr>";
         }
         ?>
