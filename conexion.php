@@ -1,10 +1,10 @@
 <?php
 
 //conexion al servidor
-$host = "localhost";
+$host = "localhost::3307";
 $user = "root";
 $clave = "";
-$bd = "Bling";
+$bd = "bling_o";
 
 $conectar = mysqli_connect($host, $user, $clave, $bd);
 if (!$conectar){
