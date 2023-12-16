@@ -1,7 +1,7 @@
 <?php
 
 //conexion al servidor
-$host = "localhost::3307";
+$host = "localhost";
 $user = "root";
 $clave = "";
 $bd = "bling_o";

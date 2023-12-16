@@ -11,7 +11,7 @@
 <?php
 
 // Conectar a la base de datos
-$mysqli = new mysqli('localhost:3307', 'root', '', 'bling_o');
+$mysqli = new mysqli('localhost', 'root', '', 'bling_o');
 
 // Verificar la conexión
 if ($mysqli->connect_error) {

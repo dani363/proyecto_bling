@@ -13,7 +13,7 @@
 $busqueda = $_GET['busqueda'];
 $fecha_inicio = $_GET['fecha_inicio'];
 $fecha_fin = $_GET['fecha_fin'];
-$conexion = mysqli_connect('localhost:3307', 'root', '', 'bling_o');
+$conexion = mysqli_connect('localhost', 'root', '', 'bling_o');
 
 if (!$conexion) {
 echo "Error: No se pudo conectar a la base de datos.";
@@ -35,7 +35,7 @@ while ($registro = mysqli_fetch_assoc($resultado)) {
 echo "<tr>";
 echo "<td>{$registro['fecha_pago']}</td>";
 echo "<td>{$registro['total']}</td>";
-echo "<td><a href='mod_pago.html?id_pago={$registro['id_pago']}'>Modificar</a> | <td><a href='elim_pago.php?id_pago={$registro['id_pago']}'>Eliminar</a></td>";
+echo "<td><a href='mod_pago.html?id_pago={$registro['id_pago']}'>Modificar</a> | <a href='elim_pago.php?id_pago={$registro['id_pago']}' onclick='confirmarEliminar({$registro['id_pago']})'>Eliminar</a> | <a href='detalles_pago.php?id_pago={$registro['id_pago']}'>Detalle</a></td>";
 echo "</tr><br>";
 }
 } else {

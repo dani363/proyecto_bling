@@ -1,7 +1,5 @@
 <?php
-// Conexión a la base de datos
-
-$conexion = mysqli_connect('localhost:3307', 'root', '', 'bling_o');
+$conexion = mysqli_connect('localhost', 'root', '', 'bling_o');
 
 if (!$conexion) {
 echo "Error: No se pudo conectar a la base de datos.";
@@ -25,17 +23,32 @@ header('Location: col_pago_list.php');
 
 }
 
-// Si no hay errores, ejecutar la consulta SQL
-if (empty($_SESSION['error'])) {
+// Obtener la lista de ventas
+$sql = "SELECT id_venta FROM venta";
+$resultado = mysqli_query($conexion, $sql);
+
+// Validar que el ID de la venta exista
+if (mysqli_num_rows($resultado) == 0) {
+$_SESSION['error'] = "No existen ventas registradas.";
+header('Location: col_pago_list.php');
+}
+
+// Verificar que el ID de la venta sea válido
+foreach ($resultado as $registro) {
+if ($id_transaccion == $registro['id_venta']) {
+break;
+}
+}
+
+if ($id_transaccion == $registro['id_venta']) {
+// Si el ID de la venta es válido, ejecutar la consulta SQL
 $sql = "INSERT INTO pago (fecha_pago, total, fk_id_venta) VALUES (?, ?, ?)";
 $sentencia = $conexion->prepare($sql);
 $sentencia->execute(array($fecha_pago, $total, $id_transaccion));
-// Mensaje de error
-if (!empty($_SESSION['error'])) {
-echo $_SESSION['error'];
-header('Location: col_pago_list.php');
-}
 // Redirigir a la página principal
-//header('Location: index.php');
-header('Location: metodo_de_pago.php');
+header('Location: col_pago_list.php');
+} else {
+// Si el ID de la venta no es válido, mostrar un mensaje de error
+$_SESSION['error'] = "El ID de la venta no es válido.";
+header('Location: col_pago_list.php');
 }

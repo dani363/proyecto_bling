@@ -24,17 +24,17 @@
 <label for="total_venta">Total venta:</label>
 <input type="number" name="total_venta" id="total_venta">
 
-<label for="cod_vendedor">Código del vendedor:</label>
-<select name="cod_vendedor" id="cod_vendedor">
+<label for="id_vendedor">ID del vendedor:</label>
+<select name="id_vendedor" id="id_vendedor">
   <option value="">Seleccione un vendedor</option>
   <?php
-  $conexion = mysqli_connect('localhost:3307', 'root', '', 'bling_o');
+  $conexion = mysqli_connect('localhost', 'root', '', 'bling_o');
   // Obtener los datos de los vendedores
-  $sql = "SELECT cod_vendedor FROM vendedor";
+  $sql = "SELECT id_vendedor FROM vendedor";
   $resultado = mysqli_query($conexion, $sql);
 
   while ($registro = mysqli_fetch_assoc($resultado)) {
-    echo "<option value=\"{$registro['cod_vendedor']}\">{$registro['nombre']}</option>";
+    echo "<option value=\"{$registro['id_vendedor']}\">{$registro['nombre']}</option>";
   }
   ?>
 </select>
@@ -43,7 +43,8 @@
 <select name="id_producto" id="id_producto">
   <option value="">Seleccione un producto</option>
   <?php
-  $conexion = mysqli_connect('localhost:3307', 'root', '', 'bling_o');
+  $conexion = mysqli_connect('localhost', 'root', '', 'bling_o');
+  mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
   // Obtener los datos de los productos
   $sql = "SELECT id_producto, nombre, precio_unitario FROM producto";
   $resultado = mysqli_query($conexion, $sql);

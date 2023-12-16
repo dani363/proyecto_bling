@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultadoConsulta) {
         $usuario = mysqli_fetch_assoc($resultadoConsulta);
 
-        if ($usuario && password_verify($contraseña, $usuario["contraseña"])) {
+        if ($usuario && !password_verify($contraseña, $usuario["contraseña"])) {
             // Iniciar sesión
             session_start();
             $_SESSION["id_usuario"] = $usuario["id_usuario"];

@@ -10,6 +10,7 @@
   <input type="text" name="busqueda" placeholder="Buscar">
   <input type="submit" value="Buscar">
 </form>
+<a href="../Bling/dashboard_v.html" class="volver-btn">Volver</a>
 <h1>Listado de ventas</h1>
 
 <table>
@@ -18,7 +19,7 @@
     <th>Fecha</th>
     <th>Total cantidad</th>
     <th>Total venta</th>
-    <th>cod.Vendedor</th>
+    <th>cod_vendedor</th>
     <th>nom.Vendedor</th>
   </tr>
 
@@ -37,19 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $busqueda = $_POST['busqueda'];
   $estado = $_POST['estado'];
   $fecha_inicio = $_POST['fecha_inicio'];
-  $cod_vendedor = $_POST['cod_vendedor'];
+  $cod_vendedor = $_POST['id_vendedor'];
 }
 
 
 // Consulta SQL
-$sql = "SELECT id_venta, estado, fecha, Total_cantidad, Total_venta, cod_vendedor, nombre
+$sql = "SELECT id_venta, estado, fecha, Total_cantidad, Total_venta, cod_vendedor
 FROM venta
-INNER JOIN vendedor ON venta.fk_cod_vendedor = vendedor.cod_vendedor
-INNER JOIN usuario  ON vendedor.fk_id_usuario = usuario.id_usuario
-WHERE 1 = 1";
+INNER JOIN vendedor ON venta.fk_cod_vendedor = vendedor.id_vendedor";
 
 if ($busqueda != "") {
-  $sql .= " AND id_venta LIKE '%$busqueda%' OR estado LIKE '%$busqueda%' OR fecha LIKE '%$busqueda%' OR Total_cantidad LIKE '%$busqueda%' OR Total_venta LIKE '%$busqueda%' OR cod_vendedor LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%'";
+  $sql .= " AND id_venta LIKE '%$busqueda%' OR estado LIKE '%$busqueda%' OR fecha LIKE '%$busqueda%' OR Total_cantidad LIKE '%$busqueda%' OR Total_venta LIKE '%$busqueda%' OR id_vendedor LIKE '%$busqueda%'";
 }
 
 if ($estado != "") {
@@ -72,13 +71,12 @@ if (mysqli_num_rows($resultado) == 0) {
 
 while ($registro = mysqli_fetch_assoc($resultado)) {
   echo "<tr>";
-  echo "<td>{$registro['id_venta']}</td>";
+  echo "<?php<td>{$registro['id_venta']}</td>";
   echo "<td>{$registro['estado']}</td>";
   echo "<td>{$registro['fecha']}</td>";
   echo "<td>{$registro['Total_cantidad']}</td>";
   echo "<td>{$registro['Total_venta']}</td>";
   echo "<td>{$registro['cod_vendedor']}</td>";
-  echo "<td>{$registro['nombre']}</td>";
   echo "<td><a href='elim_venta.php?id_venta={$registro['id_venta']}' onclick='confirmarEliminar({$registro['id_venta']})'>Eliminar</a> </td><td> | <a href='detalles_pago.php?id_pago={$registro['id_venta']}'>Detalle</a></td>";
   echo "</tr>";
 }
@@ -93,7 +91,7 @@ while ($registro = mysqli_fetch_assoc($resultado)) {
 
 
     <a href="crear_venta.php " class="volver-btn">Agregar venta</a>
-    <a href="../Bling/dashboard_v.html" class="volver-btn">Volver</a>
+   
     <a href="../Bling/col_pago_list.php" class="volver-btn">pagos realizados</a>
 
 

@@ -1,6 +1,6 @@
 <?php
 // Conectar a la base de datos
-$conexion = mysqli_connect('localhost:3307', 'root', '', 'bling_o');
+$conexion = mysqli_connect('localhost', 'root', '', 'bling_o');
 
 // Definir la variable $id_venta
 $id_venta = $_GET['id_venta'];

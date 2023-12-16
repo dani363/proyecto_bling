@@ -18,11 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Consulta SQL
-$sql = "SELECT id_venta, estado, fecha, Total_cantidad, Total_venta, cod_vendedor, nombre
+$sql = "SELECT id_venta, estado, fecha, Total_cantidad, Total_venta, id_vendedor
 FROM venta
-INNER JOIN vendedor ON venta.fk_cod_vendedor = vendedor.cod_vendedor
-INNER JOIN usuario ON vendedor.fk_id_usuario = usuario.id_usuario
-WHERE id_venta LIKE '%$busqueda%' OR estado LIKE '%$busqueda%' OR fecha LIKE '%$busqueda%' OR Total_cantidad LIKE '%$busqueda%' OR Total_venta LIKE '%$busqueda%' OR cod_vendedor LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%'";
+INNER JOIN vendedor ON venta.fk_cod_vendedor = vendedor.id_vendedor
+WHERE id_venta LIKE '%$busqueda%' OR estado LIKE '%$busqueda%' OR fecha LIKE '%$busqueda%' OR Total_cantidad LIKE '%$busqueda%' OR Total_venta LIKE '%$busqueda%' OR id_vendedor LIKE '%$busqueda%'";
 
 $resultado = mysqli_query($conexion, $sql);
 
@@ -38,14 +37,13 @@ while ($registro = mysqli_fetch_assoc($resultado)) {
     echo "<td>{$registro['fecha']}</td>";
     echo "<td>{$registro['Total_cantidad']}</td>";
     echo "<td>{$registro['Total_venta']}</td>";
-    echo "<td>{$registro['cod_vendedor']}</td>";
-    echo "<td>{$registro['nombre']}</td>";
+    echo "<td>{$registro['id_vendedor']}</td>";
     echo "<td><a href='elim_venta.php?id_venta={$registro['id_venta']}' onclick='confirmarEliminar({$registro['id_venta']})'>Eliminar</a> </td><td> <a href='detalles_pago.php?id_pago={$registro['id_venta']}'>Detalle</a></td>";
     echo "<td><a href='ruta_al_archivo.pdf' download='nombre_del_archivo.pdf'>Descargar</a></td>";
     echo "</tr>";
     echo "</table>";
    $nombre_del_archivo = "porte_ventas.pdf";
-   echo "<a href=\"$ruta_al_archivo\" download=\"$nombre_del_archivo\">Descargar</a>";
+   
 }
 
 ?>
