@@ -1,15 +1,12 @@
 <?php
 // Conectar a la base de datos
-$conexion = mysqli_connect('localhost', 'root', '', 'bling_o');
-
-// Definir la variable $id_venta
-$id_venta = $_GET['id_venta'];
+include ('conexion.php');
 
 if (!$conexion) {
     echo "Error: No se pudo conectar a la base de datos.";
     exit;
 }
-
+$id_venta = $_GET['id_venta'];
 // Eliminar las transacciones asociadas a la venta
 $sql = "DELETE FROM transacciones WHERE fk_id_pago = $id_venta";
 $resultado = mysqli_query($conexion, $sql);

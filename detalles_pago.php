@@ -4,19 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../bling/css/style_pago.css">
+  <link rel="stylesheet" href="./css/style_pago.css">
 </head>
 <body>
 <a href="./ventas_list.php" class="volver-btn">Volver</a>
 <?php
 
 // Conectar a la base de datos
-$mysqli = new mysqli('localhost', 'root', '', 'bling_o');
-
-// Verificar la conexión
-if ($mysqli->connect_error) {
-  die('Connection failed: ' . $mysqli->connect_error);
-}
+include('conexion.php');
 
 // Obtener el ID del pago
 $idPago = $_GET['id_pago'];

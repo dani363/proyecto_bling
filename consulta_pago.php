@@ -13,17 +13,16 @@
 $busqueda = $_GET['busqueda'];
 $fecha_inicio = $_GET['fecha_inicio'];
 $fecha_fin = $_GET['fecha_fin'];
-$conexion = mysqli_connect('localhost', 'root', '', 'bling_o');
-
-if (!$conexion) {
-echo "Error: No se pudo conectar a la base de datos.";
-exit;}
+include('conexion.php');
 // Consulta SQL
-$sql = "SELECT * FROM pago WHERE
-fecha_pago LIKE '%{$busqueda}%' OR
-total LIKE '%{$busqueda}%' OR
-fecha_pago BETWEEN '{$fecha_inicio}' AND '{$fecha_fin}'
-ORDER BY fecha_pago DESC";
+$sql = "SELECT id_venta, estado, fecha, Total_cantidad, cod_vendedor
+        FROM venta
+        INNER JOIN vendedor ON venta.fk_cod_vendedor = vendedor.id_vendedor
+        WHERE (id_venta LIKE '%$busqueda%' 
+               OR estado LIKE '%$busqueda%' 
+               OR fecha LIKE '%$busqueda%' 
+               OR Total_cantidad LIKE '%$busqueda%'
+               OR id_vendedor LIKE '%$busqueda%')";
 
 // Ejecutar la consulta
 $resultado = mysqli_query($conexion, $sql);

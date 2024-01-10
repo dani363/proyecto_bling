@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Consulta Pago</title>
-    <link rel="stylesheet" href="../bling/css/style_pago.css">
+    <link rel="stylesheet" href="./css/style_pago.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
         </tr>
 
         <?php
-        $conexion = mysqli_connect('localhost', 'root', '', 'bling_o');
+        include("conexion.php");
 
         if (!$conexion) {
              echo "Error: No se pudo conectar a la base de datos.";
@@ -42,7 +42,7 @@
             echo "<tr>";
             echo "<td>{$registro['fecha_pago']}</td>";
             echo "<td>{$registro['total']}</td>";
-            echo "<td><a href='mod_pago.php?id_pago={$registro['id_pago']}'>Modificar</a> | <a href='elim_pago.php?id_pago={$registro['id_pago']}' onclick='confirmarEliminar({$registro['id_pago']})'>Eliminar</a> | <a href='detalles_pago.php?id_pago={$registro['id_pago']}'>Detalle</a></td>";
+            echo "<td><a href='detalles_pago.php?id_pago={$registro['id_pago']}'>Detalle</a></td>";
             echo "</tr>";
         }
         ?>
@@ -60,6 +60,10 @@ function confirmarEliminar(id_pago) {
   var respuesta = confirm("¿Está seguro de que desea eliminar este registro?");
   if (respuesta) {
     window.location.href = "elim_pago.php?id_pago=" + id_pago + "&confirmar=1";
+  }else if(respuesta){
+    window.location.href = "col_pago_list.php";
+  }else {
+    echo "error";
   }
 }
 </script>

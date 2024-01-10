@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../bling/css/style_pago.css">
+    <link rel="stylesheet" href="./css/style_pago.css">
     <style>
     
     .volver-btn {
@@ -20,7 +20,7 @@
 </head>
 <body>
 <?php
-  $conexion = mysqli_connect('localhost', 'root', '', 'bling_o');
+ include('conexion.php');
 
   if (!$conexion) {
     echo "Error: No se pudo conectar a la base de datos.";
