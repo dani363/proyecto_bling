@@ -36,10 +36,6 @@
     <input type="text" class="form-control" name="nombre">
   </div>
   <div class="mb-3">
-    <label class="form-label">Marca</label>
-    <input type="text" class="form-control" name="marca">
-  </div>
-  <div class="mb-3">
     <label class="form-label">Estado</label>
     <input type="text" class="form-control" name="estado">
   </div>
@@ -47,15 +43,39 @@
     <label class="form-label">Categorias</label>
     <input type="text" class="form-control" name="categorias">
   </div>
+  <div class="mb-3">
+    <label for="marcaSelect" class="form-label">Selecciona una marca:</label>
+    <select class="form-select" id="marcaSelect" name="nombre_marca" aria-label="Selecciona una marca">
+    <option selected>Selecciona una marca</option>
+
+
+    <?php
+    // Consultar las marcas desde la base de datos
+    include ("conexion.php");
+    $sql = "SELECT id_marca, nombre_marca FROM marca";
+    $result = $conectar->query($sql);
+    
+    
+    // Generar opciones del select
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<option value='" . $row['id_marca'] . "'>" . $row['nombre_marca'] . "</option>";
+        }
+    } else {
+        echo "<option value=''>No hay marcas disponibles</option>";
+    }
+
+    ?>
+</select>
+
+</div>
 </div>
   <div class= "text-center">
   <button type="submit" class="btn btn-danger">Guardar</button>
   <a href="visualizar.php" class="btn btn-dark">Regresar a la Lista</a>
 </div>
-  
-  
 </form>
-    </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
