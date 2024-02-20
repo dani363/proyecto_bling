@@ -7,12 +7,15 @@ $color = $_POST["color"];
 $cantidad = $_POST["cantidad"];
 $descripcion = $_POST["descripcion"];
 $nombre = $_POST["nombre"];
-$marca = $_POST["marca"];
+$nombre_marca = $_POST["nombre_marca"];
 $estado = $_POST["estado"];
 $categorias = $_POST["categorias"];
 
-$modificar = "UPDATE producto SET talla = '$talla', color = '$color', cantidad = '$cantidad', descripcion = '$descripcion', nombre = '$nombre', marca = '$marca', estado = '$estado', categorias = '$categorias' WHERE id_producto = '$id_producto'";
-$resultado = mysqli_query($conectar, $modificar);
+$modificarproducto = "UPDATE producto SET talla = '$talla', color = '$color', cantidad = '$cantidad', descripcion = '$descripcion', nombre = '$nombre', estado = '$estado', categorias = '$categorias' WHERE id_producto = '$id_producto'";
+$resultadoproducto = mysqli_query($conectar, $modificarproducto);
+$modificarmarcaprod = "UPDATE marca_producto set fk_id_marca = $nombre_marca where fk_id_producto = $id_producto;";
+$resultadomarcaprod = mysqli_query($conectar, $modificarmarcaprod);
+
 
 if ($resultado === TRUE) {
     header("location: visualizar.php?success=true");
