@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <h1 class="bg-primary p-2 text-white text-center">Modificar Productos</h1>
+    <h1 class="bg-primary p-2 text-white text-center">Modificar un Producto</h1>
 
     <?php
         // Obtener el valor de id_producto de la URL
@@ -40,10 +40,6 @@
             <input type="text" class="form-control" name="nombre" value="">
         </div>
         <div class="mb-3">
-            <label class="form-label">Marca</label>
-            <input type="text" class="form-control" name="marca" value="">
-        </div>
-        <div class="mb-3">
             <label class="form-label">Estado</label>
             <input type="text" class="form-control" name="estado" value="">
         </div>
@@ -51,6 +47,32 @@
             <label class="form-label">Categorias</label>
             <input type="text" class="form-control" name="categorias" value="">
         </div>
+        <div class="mb-3">
+    <label for="marcaSelect" class="form-label">Selecciona una marca:</label>
+    <select class="form-select" id="marcaSelect" name="nombre_marca" aria-label="Selecciona una marca">
+    <option selected>Selecciona una marca</option>
+
+
+    <?php
+    // Consultar las marcas desde la base de datos
+    include ("conexion.php");
+    $sql = "SELECT id_marca, nombre_marca FROM marca";
+    $result = $conectar->query($sql);
+    
+    
+    // Generar opciones del select
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<option value='" . $row['id_marca'] . "'>" . $row['nombre_marca'] . "</option>";
+        }
+    } else {
+        echo "<option value=''>No hay marcas disponibles</option>";
+    }
+
+    ?>
+</select>
+
+</div>
         <div class="text-center">
             <button type="submit" class="btn btn-danger">Guardar</button>
             <a href="visualizar.php" class="btn btn-dark">Regresar a la Lista</a>
